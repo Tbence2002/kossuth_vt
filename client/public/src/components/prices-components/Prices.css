@@ -1,0 +1,53 @@
+.prices-ozbak {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.prices-ozbak h1, .prices-szarvas h1 {
+    text-align: center;
+}
+.prices-ozbak-arlista {
+    display: flex;
+    gap:2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin:1rem 5rem;
+}
+.prices-ozbak-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #EAEAEA;
+    padding:1rem 4rem;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 320px;
+}
+.prices-title {
+    display: grid;
+    place-items: center;
+    margin:2rem;
+}
+.prices-title p {
+    font-size: 1.1rem;
+}
+.prices-szarvas-arlista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    place-items: center;
+    gap:2.5rem;
+    margin:4rem 4rem;
+}
+.prices-szarvas-box {
+    background: #EAEAEA;
+    padding:1rem 4rem;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 320px;
+    height:220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,131 @@
+.members-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+.members-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.members-info {
+    width:550px;
+    background: white;
+    padding:0.5rem 2rem;
+    border-top-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    z-index: 111;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.members-info-list {
+    display: flex;
+    align-items: center;
+    gap:0.3rem;
+}
+.members-info-list svg {
+    color:#4096ff;
+}
+.members-info-list p {
+    margin:0.5rem;
+}
+.add-members {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:2rem;
+    padding:3rem 2.5rem;
+    width:400px;
+    height:400px;
+    background: #303030;
+    margin-left: -1.5rem;
+    border-top-left-radius: 3rem;
+    border-bottom-right-radius: 3rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.boxes {
+    position: relative;
+}
+.boxes label {
+    position: absolute;
+    top:5px;
+    transition: .3s;
+}
+.boxes input:focus ~ label {
+    top:0px;
+    transition: .3s;
+}
+.boxes input:valid ~ label {
+    top:0px;
+}
+.boxes input:invalid:focus ~ label {
+    top:5px;
+}
+.members-content-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap:2rem;
+    justify-content: center;
+    margin:2rem 5rem;
+}
+.members-box h2,h3,p {
+    margin:0.5rem;
+}
+.members-box {
+    background: #EAEAEA;
+    padding:1rem 4rem;
+    text-align: center;
+    border-top-left-radius: 3rem;
+    border-bottom-right-radius: 3rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.members-options {
+    display: flex;
+    justify-content: center;
+    gap:2rem;
+}
+.members-delete {
+    display: flex;
+    align-items: center;
+}
+.members-delete:hover {
+    cursor: pointer;
+    color:rgb(241, 18, 18);
+}
+@media(max-width:1181px) {
+    .members-content {
+        flex-direction: column;
+        gap:2rem;
+    }
+    .members-info {
+        width:400px;
+    }
+    .members-info h1 {
+        font-size:1.5rem;
+    }
+    .add-members {
+        margin-left:0;
+    }
+}
+@media(max-width:713px) {
+    .add-members input {
+        width:200px;
+    }
+    .add-members, .members-info {
+        width:300px;
+    }
+    .members-info h1 {
+        font-size:1.2rem;
+    }
+}
+@media(max-height:841px) {
+    .members-container {
+        margin:3rem 0rem;
+        height: 100%;
+    }
+    .members-info h1 {
+        font-size:1.2rem;
+    }
+}
