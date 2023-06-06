@@ -1,0 +1,97 @@
+.gallery-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+.home-container h1 {
+    margin:0;
+    position: absolute;
+    top:30px;
+    left:30px;
+    color:#303030;
+}
+.gallery-container h2 {
+    color:#303030;
+    text-transform: uppercase;
+}
+.add-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:1rem;
+    margin:2rem 0rem;
+}
+.add-image button {
+    background: #303030;
+    border: 0;
+    padding:0.6rem 1.2rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    color: white;
+    position: relative;
+    transition: .3s;
+}
+.add-image input::file-selector-button {
+    color: white;
+    padding: 0.5rem;
+    border:0;
+    border-radius: 3px;
+    background: #303030;
+    position: relative;
+}
+.add-image input::file-selector-button:hover {
+    cursor: pointer;
+    background: rgb(90, 90, 240);
+    transition: .3s;
+}
+.add-image button:hover {
+    cursor: pointer;
+    background: rgb(90, 90, 240);
+    transition: .3s;
+}
+.arrow-down {
+    display: flex;
+    align-items: center;
+    gap:1rem;
+}
+.image-container {
+    display: flex;
+    gap:1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    width:80%;
+    margin:0 auto;
+}
+.image {
+    width:200px;
+    height:200px;
+}
+.image img {
+    width:100%;
+    height: 100%;
+    background-size: cover;
+    object-fit: cover;
+    transition: .3s;
+}
+.image img:hover {
+    transform: scale(1.1);
+    transition: .3s;
+    cursor: pointer;
+}
+@media(max-width:713px) {
+    .add-image {
+        flex-direction: column;
+        gap:3rem;
+    }
+    .gallery-container h2 {
+        width:300px;
+    }
+}
+@media(max-height:470px) {
+    .gallery-content {
+        margin:10rem 0rem;
+        height: 100%;
+    }
+}
