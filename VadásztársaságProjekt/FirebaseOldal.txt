@@ -1,0 +1,59 @@
+import React,{useState, useEffect} from 'react'
+import {storage} from '../components/home-components/Firebase'
+import {ref, uploadBytes, listAll, getDownloadURL, list} from 'firebase/storage'
+import {v4} from 'uuid'
+
+function FileUpload() {
+    const [imageUpload, setImageUpload] = useState(null);
+    const [imageList, setImageList]= useState([]);
+
+    const imageListRef = ref(storage, "images/");
+    const uploadImage = ()=> {
+        if(imageUpload == null) return;
+        const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
+        uploadBytes(imageRef, imageUpload).then((snaphsot)=> {
+            getDownloadURL(snaphsot.ref).then((url)=> {
+                setImageList((prev)=>[...prev,url]);
+            })
+        });
+    };
+    useEffect(()=> {
+        listAll(imageListRef).then((response)=> {
+            const promises = response.items.map((item)=> {
+                return getDownloadURL(item);
+            });
+            Promise.all(promises).then((urls)=> {
+                setImageList(urls);
+            });
+        });
+    },[imageList]);
+
+  return (
+    <>
+        <input type="file" onChange={(event)=> {setImageUpload(event.target.files[0])}}/>
+        <button onClick={uploadImage}>Feltöltés</button>
+        {imageList.map((url)=> {
+            return <img src={url} style={{width:'300px'}}/>;
+        })}
+    </>
+  )
+}
+export default FileUpload
+
+
+
+
+import { initializeApp } from "firebase/app";
+import {getStorage} from 'firebase/storage'
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCb6XY6hhiDzyrwMy1LqxIhEkilxuyc8Tk",
+  authDomain: "uploadingpicture-29742.firebaseapp.com",
+  projectId: "uploadingpicture-29742",
+  storageBucket: "uploadingpicture-29742.appspot.com",
+  messagingSenderId: "193259266787",
+  appId: "1:193259266787:web:22db6afd4e036862c5dbd6"
+};
+
+const app = initializeApp(firebaseConfig);
+export const storage = getStorage(app);
